@@ -2,6 +2,7 @@ package org.techtown.function1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,6 +24,31 @@ class MainActivity : AppCompatActivity() {
             val result = add(first, second)
             textView.text = "더하기 결과 : $result"
         }
+
+        button3.setOnClickListener {
+            val result = add(getFirst(), getSecond())
+            textView.text = "더하기 결과 : $result"
+            val result3 = sum(10,20,30)
+            showToast("결과 : ${result3}")
+        }
+    }
+    fun sum(vararg inputs:Int):Int{   //가변 파라미터
+        var output = 0
+        for(num in inputs){
+            output += num
+        }
+        return output
+    }
+    fun showToast(message:String){
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+    }
+    fun getFirst():Int{
+        val firstStr = input1.text.toString()
+        return firstStr.toInt()
+    }
+    fun getSecond():Int{
+        val secondStr = input2.text.toString()
+        return secondStr.toInt()
     }
 
     fun add(a:Int, b:Int):Int{
