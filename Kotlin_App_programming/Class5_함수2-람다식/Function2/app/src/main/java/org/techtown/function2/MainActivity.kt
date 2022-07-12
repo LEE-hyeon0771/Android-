@@ -22,9 +22,38 @@ class MainActivity : AppCompatActivity() {
             output2.text = "계산 결과 : $result2"
             val multiply = {a:Int, b:Int -> a * b}
             val multiply2:(Int, Int)->Int = {a, b -> a * b}
+
+            var show1 = {println("show 함수 호출됨")}   //fun show()와 같은 기능을 하는 람다식
+            var show2:()->Unit = {println("show 함수 호출됨")}  //들어오는 값 X, 나가는 값 Unit
+
+            val sum = fun(a:Int, b:Int):Int{       //람다식의 변수상자 sum을 함수로 바로 사용 가능
+                return a + b
+            }
+            sum(10,10)
+            doAction(fun():Int{             //숫자 반환일 때
+                println("전달된 함수 호출됨.")
+                return 10
+            })
+
+            doAction{
+                println("전달된 함수 호출됨.")
+                10   //바로 호출될 때 return 안적음
+            }
+
+            doAction{
+                println("전달된 함수 호출됨.")
+                return@doAction 10    //return 적으려면 라벨을 이용해서 범위 결정해 주어야함.
+            }
         }
     }
 
+    fun doAction(action:()->Int){     //파라미터를 함수 형태로 람다식 표현
+        println("doAction 호출됨.")
+        val result = action()
+    }
+    fun show():Unit{    //Unit : void의 의미 -> 생략도 가능
+        println("show 함수 호출됨.")
+    }
     fun getOperator(name:String): ((Int, Int) -> Int)? {   //null 값 전달을 위해 자료형에 ? 입력
         var oper:((Int,Int)->Int)? = null //wrapping해서 null 입력
         if(name == "add") {
