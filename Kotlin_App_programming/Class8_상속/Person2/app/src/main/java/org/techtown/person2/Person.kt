@@ -1,6 +1,8 @@
 package org.techtown.person2
 
-open class Person(var name:String?) {    //open을 적어줘야 상속이 됨
+import android.widget.TextView
+
+open class Person(open var name:String?) {    //open을 적어줘야 상속이 됨
     var age:Int? = null
     var address:String? = null
 
@@ -9,5 +11,10 @@ open class Person(var name:String?) {    //open을 적어줘야 상속이 됨
 
         this.age = age
         this.address = address
+    }
+
+    open fun walk(output: TextView){
+        println("걷는다.")
+        output.text = "사람이 걷는다."
     }
 }
