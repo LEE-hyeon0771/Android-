@@ -24,6 +24,7 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
+
     fun processIntent(passedIntent: Intent){   //Intent 타입으로 MainActivity의 putExtra 값이 들어옴
         val mobile = passedIntent.getStringExtra("mobile")
         if(mobile != null){
