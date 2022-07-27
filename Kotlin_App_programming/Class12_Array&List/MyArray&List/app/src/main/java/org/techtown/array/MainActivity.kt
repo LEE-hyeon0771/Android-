@@ -39,6 +39,46 @@ class MainActivity : AppCompatActivity() {
             digits.forEachIndexed{index, i->
                 output1.append("\n#${index} : ${i}")  //각각의 원소를 넘겨 받기 digits = [1,2,4]
             }
+            var index = 0
+            for(i in digits){      //forEachIndexed와 같은 작업
+                output1.append("\n#${index} : ${i}")
+                index += 1
+            }
+
+            val iter = digits.iterator()
+            index = 0
+            while(iter.hasNext()){      //iterator 사용해서 순회
+                val i = iter.next()
+                output1.append("\n#${index} : ${i}")
+                index += 1
+            }
+
+            val sortedArray = digits.sortedArray()  // 오름차순 정렬
+            val sortedArray2 = digits.sortedArrayDescending()   //내림차순 정렬
+
+            digits.filter{ elem -> elem > 1 }.forEach { //filtering된 원소를 보여준다.  여기서는 원소가 1보다 클 때만 보여줌.
+                output1.append("\n원소 : ${it}")
+            }
+
+            button2.setOnClickListener {
+                val names = listOf("홍길동1","홍길동2","홍길동3")  //기본 리스트는 immutable이므로 수정이 안됨.
+                val names2 = List<String>(3) {index -> "홍길동${index+1}"}  //배열 형태와 살짝 차이가 있음.
+                //names.add("홍길동4") -> 이런식으로 붙여지지가 않음.
+                val names3 = mutableListOf<String>("홍길동1","홍길동2","홍길동3")
+                names3.add("홍길동4")  //List 맨 뒤에 추가
+                names3[1] = "홍길동5"  //index 1자리 수정
+                output1.append("\n${names3.joinToString()}")
+
+                val names4 = emptyList<String>()
+                val names5 = arrayListOf<String>()   //JAVA의 arrayList와 같은 기능
+                val names6 = ArrayList<String>()
+
+                if(names3.contains("홍길동5")){
+                    val aIndex = names3.indexOf("홍길동5")   //홍길동5를 꺼내와서 aIndex에 담기
+                    val names4 = names3.slice(0..aIndex)  //names4를 names3 리스트의 0~홍길동5까지 slice
+                    output1.append("\n${names4.joinToString()}")
+                }
+            }
         }
     }
 }
