@@ -22,8 +22,8 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nextbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="다음화면으로" />
 </LinearLayout>
