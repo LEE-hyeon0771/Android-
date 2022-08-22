@@ -6,9 +6,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_main.*
-import org.techtown.tab.FirstFragment
-import org.techtown.tab.SecondFragment
-import org.techtown.tab.ThirdFragment
+import org.techtown.movie.FirstFragment
+import org.techtown.movie.SecondFragment
+import org.techtown.movie.ThirdFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
