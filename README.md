@@ -2,7 +2,7 @@
 
 안드로이드 스튜디오 앱 개발 공부를 위한 곳입니다.
 
-주스택 : Kotlin
+### 주스택 : Kotlin
 
 
 ![제목 없음1](https://user-images.githubusercontent.com/84756586/185830977-f2c3249e-2284-4624-8c6a-00f0eb564f11.png)
