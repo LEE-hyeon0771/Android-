@@ -11,15 +11,15 @@
         android:id="@+id/imageView"
         android:layout_width="83dp"
         android:layout_height="115dp"
-        android:layout_marginLeft="20"
-        android:layout_marginTop="10"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20"
+        android:layout_marginLeft="20dp"
         android:text="이름"
         android:textSize="30sp" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20"
+        android:layout_marginLeft="20dp"
         android:text="설명"
         android:textSize="20sp" />
 

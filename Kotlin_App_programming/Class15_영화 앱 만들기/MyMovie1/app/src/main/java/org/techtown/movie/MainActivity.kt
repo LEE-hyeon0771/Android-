@@ -17,7 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(toolbar)        //툴바 설정
 
-        val toggle = ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
+        val toggle =
+            ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()                         //토글기능 구현 -> 바로가기 되도록
 
@@ -42,33 +43,32 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //바로가기를 위한 함수
-    fun onFragmentSelected(index: Int){
-        var fragment:Fragment = FirstFragment()
+        //바로가기를 위한 함수
+        fun onFragmentSelected(index: Int) {
+            var fragment: Fragment = FirstFragment()
 
-        when(index){
-            0 -> {
-                toolbar.title = "첫번째 화면"
-                fragment = FirstFragment()
+            when (index) {
+                0 -> {
+                    toolbar.title = "첫번째 화면"
+                    fragment = FirstFragment()
+                }
+                1 -> {
+                    toolbar.title = "두번째 화면"
+                    fragment = SecondFragment()
+                }
+                2 -> {
+                    toolbar.title = "세번째 화면"
+                    fragment = ThirdFragment()
+                }
             }
-            1 -> {
-                toolbar.title = "두번째 화면"
-                fragment = SecondFragment()
-            }
-            2 -> {
-                toolbar.title = "세번째 화면"
-                fragment = ThirdFragment()
-            }
+            supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
         }
-        supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
-    }
 
-    override fun onBackPressed(){    //뒤로가기 -> 부모 클래스에 있기 때문에 override로 구현
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START)
-        }
-        else {
-            super.onBackPressed()
+        override fun onBackPressed() {    //뒤로가기 -> 부모 클래스에 있기 때문에 override로 구현
+            if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                super.onBackPressed()
+            }
         }
     }
-}
